@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="index.css" />
+
+    <script src="desing-system.js"></script>
+    <script src="index.js"></script>
+
+    <title>User Story Builder</title>
+  </head>
+  <body>
+    <header>
+      <h1>
+        User Story Builder
+        <small>with Jira support</small>
+      </h1>
+
+      <div>
+        <div>
+          <img
+            src="https://www.svgrepo.com/show/372152/world.svg"
+            alt="Langua"
+            title="Select a Language"
+          />
+          <br />
+          ES / <b>EN</b>
+        </div>
+        <div>
+          <img src="https://www.svgrepo.com/show/379800/backlog.svg" alt="Backlog" />
+          <br />
+          Backlog
+        </div>
+        <div>
+          <img
+            src="https://www.svgrepo.com/show/334694/grid.svg"
+            alt="Other tools"
+            title="Other tools"
+          />
+          <br />
+          Other Apps
+        </div>
+      </div>
+    </header>
+    <h2>Story Wizard</h2>
+    <main class="story-builder">
+      <div class="wizard">
+        <div id="story_builder_wizard_tabs" class="tabs">
+          <button
+            type="button"
+            class="shown"
+            onclick="showTabContent(this, 'wizard_narrative')"
+          >
+            Narrative
+          </button>
+          <button type="button" onclick="showTabContent(this, 'wizard_scope')">
+            Scope
+          </button>
+          <button type="button" onclick="showTabContent(this, 'wizard_others')">
+            Otros
+          </button>
+          <button
+            type="button"
+            onclick="showTabContent(this, 'wizard_acceptance_criteria')"
+          >
+            Acceptance Criteria
+          </button>
+        </div>
+        <div id="story_builder_wizard_items">
+          <div id="wizard_narrative" class="item narrative shown">
+            <div class="text-entrance">
+              <label for="entrance_narrative_as">As a</label>
+              <input
+                type="text"
+                id="entrance_narrative_as"
+                placeholder="Consumer of the value [Who]"
+                onkeyup="doPreviewOf('narrative_as')"
+              />
+            </div>
+            <div class="text-entrance">
+              <label for="entrance_narrative_want">I want to</label>
+              <textarea
+                id="entrance_narrative_want"
+                placeholder="Functionality [What]"
+                onkeyup="doPreviewOf('narrative_want')"
+              ></textarea>
+            </div>
+            <div class="text-entrance">
+              <label for="entrance_narrative_for">so that</label>
+              <textarea
+                id="entrance_narrative_for"
+                placeholder="Value/benefit [Why]"
+                onkeyup="doPreviewOf('narrative_for')"
+              ></textarea>
+            </div>
+          </div>
+          <div id="wizard_scope" class="item scope">
+            <h4>Scope <button type="button" class="circle" onclick="addScope('in')">+</button></h4>
+            <div id="entrance_in_scope"></div>
+            <h4>Out of Scope <button type="button" class="circle" onclick="addScope('out')">+</button></h4>
+            <div id="entrance_out_scope"></div>
+          </div>
+          <div id="wizard_others" class="item others">others</div>
+          <div id="wizard_acceptance_criteria" class="item acceptance-criteria">
+            CAs
+          </div>
+        </div>
+      </div>
+      <div class="preview">
+        <h3>Preview</h3>
+        <div class="item narrative">
+          <h4>Narrative</h4>
+          As a <span id="preview_narrative_as" class="doBold">...</span>
+          <br />
+          I want to <span id="preview_narrative_want">...</span>
+          <br />
+          so that <span id="preview_narrative_for">...</span>
+        </div>
+        <div class="item scope">
+          <h4>Scope</h4>
+          <div id="preview_in_scope"></div>
+          <h4>Out of Scope</h4>
+          <div id="preview_out_scope"></div>
+        </div>
+        <div class="item others">
+          <h4>Otros</h4>
+        </div>
+        <div class="item acceptance-criteria">
+          <h4>Acceptance Criteria</h4>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <span>User Story Builder 1.0.0 | Gonzalo A. Arenas Flores</span>
+      <span>Business Analyst / Web Developer / Photographer / Musician</span>
+      <a href="https://gonzaloarenasf.cl" target="_blank"
+        >https://gonzaloarenasf.cl</a
+      >
+    </footer>
+  </body>
+</html>
